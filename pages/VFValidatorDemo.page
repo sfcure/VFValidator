@@ -1,0 +1,69 @@
+<apex:page standardController="Contact" showHeader="false" sidebar="false" standardStylesheets="false" title="VFValidator Demo">
+    <c:VFValidator ></c:VFValidator>
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/mailtoharshit/CloudCast/master/src/salesforce-lightning-design-system-1.0.0/assets/styles/salesforce-lightning-design-system.min.css"/>
+    <style>
+        tr.slds-form-element {
+            margin-top: 10px;
+        }
+        table.form-container {
+            border-collapse: separate; 
+            border-spacing: 1em;
+            width: 400px;
+        }
+        .form-container {
+            margin-top: 40px;
+            margin-left: 50px;
+        }
+        .error {
+            color : rgba(194,57,52,.95);
+        }
+    </style>
+    <apex:form id="frm">    
+        <div class="slds">
+            <div class="form-container">
+                <div class="slds-media__body">
+                    <h1 class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate">New Contact</h1>
+                </div>
+                <table class="form-container">
+                    <tr class="slds-form-element">
+                        <td>
+                            <apex:outputLabel value="First Name"/>
+                        </td>
+                        <td>
+                            <apex:inputText id="firstName" styleClass="required slds-input" value="{!Contact.FirstName}"/> 
+                        </td>
+                    </tr>
+                    <tr class="slds-form-element">
+                        <td>
+                            <apex:outputLabel value="Last Name"/>
+                        </td>
+                        <td> 
+                            <apex:inputText id="lastName" styleClass="required slds-input" value="{!Contact.LastName}"/> 
+                        </td>
+                    </tr>
+                    <tr class="slds-form-element">
+                        <td>
+                            <apex:outputLabel value="Email"/>
+                        </td>
+                        <td>
+                            <apex:inputText id="email" styleClass="required email slds-input" value="{!Contact.Email}"/>
+                        </td>
+                    </tr>
+                    <tr class="slds-form-element">
+                        <td>
+                            <apex:outputLabel value="Password"/>
+                        </td>
+                        <td>
+                            <apex:inputText id="password" styleClass="slds-input required password"/>
+                        </td>
+                    </tr>
+                    <tr class="slds-form-element">
+                        <td colspan="2" style="text-align: right;"> 
+                            <apex:commandButton styleClass="slds-button slds-button--neutral slds-not-selected" onclick="return validateForm()" value="Submit" reRender="frm"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>            
+        </div>
+    </apex:form>
+</apex:page>
